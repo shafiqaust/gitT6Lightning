@@ -2,6 +2,8 @@ extends Area2D
 
 signal hit #collision signal
 
+signal exited_viewport
+
 @export var speed = 400
 var thrust = speed/1.5
 var screen_size # Size of the game window.
@@ -54,7 +56,15 @@ func _process(delta: float) -> void:
 		#i dont thing this ever happens
 		hide_jets()
 	
+	position.x = wrapf(position.x, 0, screen_size.x)
+	position.y = wrapf(position.y, 0, screen_size.y)
+	
 	position += velocity * delta
+	
+	# Check if player is at the screen boundary and emit the exit signal
+	if position.x <= 0 or position.x >= screen_size.x or position.y <= 0 or position.y >= screen_size.y:
+		emit_signal("exited_viewport")
+	
 	#keeps player from flying away. We may need to remove this
 	#position = position.clamp(Vector2.ZERO, screen_size)
 

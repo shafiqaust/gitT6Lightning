@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4mqqwuabw6b"
-path="res://.godot/imported/asteroid_1.png-00b8aa99f6b53bee604b046b58a1c019.ctex"
+uid="uid://dyhyteu8x44k1"
+path="res://.godot/imported/star-3.png.png-eddc15da294904fb2dc80d9362274e06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asteroid_1.png"
-dest_files=["res://.godot/imported/asteroid_1.png-00b8aa99f6b53bee604b046b58a1c019.ctex"]
+source_file="res://art/tiles/star-3.png.png"
+dest_files=["res://.godot/imported/star-3.png.png-eddc15da294904fb2dc80d9362274e06.ctex"]
 
 [params]
 
