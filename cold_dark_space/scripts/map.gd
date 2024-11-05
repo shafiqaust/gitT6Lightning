@@ -40,3 +40,17 @@ func randomize_tile_positions() -> void:
 # Call this function when the player exits the viewport
 func on_player_exit_viewport() -> void:
 	randomize_tile_positions()
+	
+	
+
+
+
+ 
+func _on_sound_pressed():
+	if $AudioStreamPlayer.playing:
+		$AudioStreamPlayer.stop()
+		$TextureButton.texture_normal = load("res://scenes/mute-sound.png")
+		
+	else:
+		$AudioStreamPlayer.play()
+		$TextureButton.texture_normal = load("res://scenes/sound_new.png")
