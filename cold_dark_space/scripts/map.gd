@@ -21,7 +21,7 @@ func randomize_tile_positions() -> void:
 		print("tile_ids array is empty; please add tile IDs to use.")
 		return
 
-		tilemap.clear_all_cells() # Clear all existing tiles
+		#tilemap.clear_all_cells() # Clear all existing tiles
 
 	# Use the manually defined cell size
 	var screen_size = get_viewport_rect().size
@@ -39,4 +39,5 @@ func randomize_tile_positions() -> void:
 
 # Call this function when the player exits the viewport
 func on_player_exit_viewport() -> void:
+	print("called")
 	randomize_tile_positions()
