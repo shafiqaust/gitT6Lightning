@@ -11,6 +11,7 @@ var can_take_damage = true  # Flag to control damage intake
 var damage_cooldown = 0.5  # Half a second cooldown
 #moved this here so speed momentum carries over the frames
 var velocity = Vector2.ZERO
+var fast_mode = false # Flag to track if player is in fast mode
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,6 +57,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("move_down"):
 		$ion_jet_down.hide()
 		$AnimatedSprite2D.pause()
+	if Input.is_action_just_pressed("space"):
+		toggle_speed()
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
@@ -110,3 +113,15 @@ func player_init(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+func toggle_speed():
+	if fast_mode:
+		# Return to normal speed
+		speed = 400
+		thrust = speed / 1.5
+		fast_mode = false
+	else:
+		# Increase speed
+		speed = 800
+		thrust = speed / 1.5
+		fast_mode = true
