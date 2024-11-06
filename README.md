@@ -4,13 +4,9 @@
 
 Language: GDScript
 
-
-This is a game where you can kill the monster in the space by shooting.
-You will get better graphics in the next level.
-
 ## Pitch:
+While doing a routine spacewalk, your ship was attacked by interdimensional aliens and exploded. The blast threw you into a non-Euclidean pocket of space where the rules of spacetime are broken. You must find a loose transponder module you saw in order to call for help. The alien is still after you as well...
 
+## Screenshots
 
-##Screenshots
-
-<img src="./game-gif.gif" alt="Lostronaut Demo" width="512" />
+<img src="./lostronaut_teaser.gif" alt="Lostronaut Demo" width="512" />
