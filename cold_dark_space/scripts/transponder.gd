@@ -1,16 +1,14 @@
-extends CharacterBody2D
+extends Area2D
 
-var ray_cast: RayCast2D = null  # Initialize or type the variable
+#signal to emit when player collides and wins the game
+signal win
+
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @export var screen_size = Vector2(1148, 645)  # Adjust to your game window size
 
 func _ready() -> void:
 	collision_shape.position = Vector2.ZERO
-	ray_cast = RayCast2D.new()
-	add_child(ray_cast)
-	ray_cast.position = Vector2.ZERO
-	ray_cast.enabled = true
-	ray_cast.collide_with_areas = true
+
 
 	# Connect to the player's exited_viewport signal
 	var player = get_parent().get_node("lostronaut")  # Adjust if the player node has a different name
@@ -23,11 +21,3 @@ func _on_player_exited_viewport() -> void:
 		randf_range(0, screen_size.x), 
 		randf_range(0, screen_size.y)
 	)
-
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_released("ui_left"):
-		#var shape = Polygon2D.new()
-		#get_parent().add_child(shape)
-		#shape.color = Color.RED
-	#elif event.is_action_released("ui_right"):
-		#self.position = get_global_mouse_position()

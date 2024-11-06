@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @export var screen_size = Vector2(1148, 645)  # Adjust to your game window size
+@onready var label: Label = $"../Label"
 
 var player_chase = true
 
@@ -40,5 +41,4 @@ func wait_for_physics():
 func _physics_process(delta: float) -> void:
 	if player_chase:
 		position += (lostronaut.position - position) / speed
-	
 	

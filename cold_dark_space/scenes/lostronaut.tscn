@@ -99,3 +99,5 @@ sprite_frames = SubResource("SpriteFrames_1d4g2")
 
 [node name="jetloop" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_att8l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

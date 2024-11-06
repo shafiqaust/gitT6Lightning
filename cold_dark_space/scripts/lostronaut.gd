@@ -7,6 +7,8 @@ signal exited_viewport
 @export var speed = 400
 var thrust = speed/1.5
 var screen_size # Size of the game window.
+var can_take_damage = true  # Flag to control damage intake
+var damage_cooldown = 0.5  # Half a second cooldown
 #moved this here so speed momentum carries over the frames
 var velocity = Vector2.ZERO
 
@@ -15,11 +17,14 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	hide_jets()
 	
-# Handle the collision when a CharacterBody2D enters the Area2D
+ #Handle the collision when a CharacterBody2D enters the Area2D
 func _on_body_entered(body):
-	if body is CharacterBody2D:
-		print("Collision detected with:", body.name)
-		emit_signal("hit", body)  # Emit custom hit signal for further handling
+	if body is CharacterBody2D and can_take_damage:
+		emit_signal("hit", body)
+		can_take_damage = false  # Disable further damage
+		# Start a timer or delay before allowing damage again
+		await get_tree().create_timer(damage_cooldown).timeout
+		can_take_damage = true  # Reset to allow future damage
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -105,4 +110,3 @@ func player_init(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
-	
