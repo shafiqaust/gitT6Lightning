@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5kmvsyneg1vl"]
+[gd_scene load_steps=8 format=3 uid="uid://b6i6qn6x5sqdx"]
 
 [ext_resource type="Script" path="res://scenes/options.gd" id="1_15qet"]
 [ext_resource type="Texture2D" uid="uid://c8irfa0v4eoww" path="res://scenes/background.png" id="1_sm52f"]
@@ -82,7 +82,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hmo0j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dyqhm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gildo")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i37iu")
-text = "<< back"
+text = " Back to Menu "
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

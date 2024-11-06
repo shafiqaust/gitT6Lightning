@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 		#playing audio doesn't work here
 		#audio should be played from main node or somewhere else
 		#where it does work
-		$jetloop.play()
+		#$jetloop.play()
 	else:
 		#i dont thing this ever happens
 		hide_jets()

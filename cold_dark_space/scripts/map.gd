@@ -10,6 +10,12 @@ func _ready() -> void:
 	if tilemap == null:
 		tilemap = $TileMap # Ensure tilemap is assigned, adjust the path if necessary
 	randomize_tile_positions()
+	
+	#added a way to escape the game while playing
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("pause"):
+		get_tree().change_scene_to_file("res://scenes/options.tscn")
+		
 
 # Method to randomize the positions of all tiles
 func randomize_tile_positions() -> void:
@@ -39,7 +45,6 @@ func randomize_tile_positions() -> void:
 
 # Call this function when the player exits the viewport
 func on_player_exit_viewport() -> void:
-	print("called")
 	randomize_tile_positions()
 	
 	

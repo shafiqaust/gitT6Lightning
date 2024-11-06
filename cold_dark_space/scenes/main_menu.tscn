@@ -123,7 +123,34 @@ offset_bottom = 245.0
 theme_override_colors/font_shadow_color = Color(0.568627, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_font_sizes/font_size = 60
-text = "Cold_Dark_Space"
+text = "Lostronaut"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -476.0
+offset_top = -145.0
+offset_right = 490.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "While doing a routine spacewalk, your ship was attacked by interdimensional aliens and exploded. The blast threw you into a non-Euclidean pocket of space where the rules of spacetime are broken. You must find a loose transponder module you saw in order to call for help. The alien is still after you as well...
+"
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="RichTextLabel"]
+z_index = -1
+layout_mode = 0
+offset_left = -8.0
+offset_right = 960.0
+offset_bottom = 73.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_pressed"]

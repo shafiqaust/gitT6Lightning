@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bfdv0n2xohds5"]
+[gd_scene load_steps=14 format=4 uid="uid://bfdv0n2xohds5"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_237v1"]
 [ext_resource type="PackedScene" uid="uid://g5ype4epqd4n" path="res://scenes/lostronaut.tscn" id="1_woe68"]
@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dyhyteu8x44k1" path="res://art/tiles/star-3.png.png" id="4_odvbe"]
 [ext_resource type="Texture2D" uid="uid://ody5pyuoj3ja" path="res://art/tiles/star-4.png.png" id="5_vuwm7"]
 [ext_resource type="Texture2D" uid="uid://dvxvt4ekv5eiu" path="res://art/tiles/star-5.png.png" id="6_4556c"]
-[ext_resource type="Texture2D" uid="uid://b7x5id6w8urhv" path="res://scenes/sound_new.png" id="8_nfpyg"]
-[ext_resource type="AudioStream" uid="uid://o4ovrr0hmjlh" path="res://scenes/space-station-247790.wav" id="10_5p36o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_psyd7"]
 texture = ExtResource("2_bts2t")
@@ -52,15 +50,4 @@ tile_set = SubResource("TileSet_rhkqh")
 
 [node name="lostronaut" parent="." instance=ExtResource("1_woe68")]
 
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 1093.0
-offset_top = 2.0
-offset_right = 1143.0
-offset_bottom = 52.0
-texture_normal = ExtResource("8_nfpyg")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_5p36o")
-
 [connection signal="exited_viewport" from="lostronaut" to="." method="on_player_exit_viewport"]
-[connection signal="pressed" from="TextureButton" to="." method="_on_sound_pressed"]
