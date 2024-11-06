@@ -77,6 +77,7 @@ func _on_sound_pressed():
 func _on_transponder_area_exited(area: Area2D) -> void:
 	var working = randi()%10 
 	if working == 9:
+		get_tree().paused = true
 		show_message("You Won!!")
 		$Label.text = "Yayyy!!"
 		# Wait until the MessageTimer has counted down.
