@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://su60papswblj"]
 
-[ext_resource type="Texture2D" uid="uid://coxqqttlwxxan" path="res://art/alien -1.png.png" id="1_cx5bt"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_tkerc"]
+[ext_resource type="Texture2D" uid="uid://dc1y62dcxtjn8" path="res://art/new_alien.png" id="2_w8l71"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7iq1"]
 radius = 33.0
@@ -16,8 +16,9 @@ script = ExtResource("1_tkerc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.454902, 1, 0, 1)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("1_cx5bt")
+position = Vector2(1.00001, -4)
+scale = Vector2(0.428, 0.46)
+texture = ExtResource("2_w8l71")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5, 10)

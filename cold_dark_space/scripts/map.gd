@@ -67,11 +67,11 @@ func _on_lostronaut_exited_viewport() -> void:
 func _on_sound_pressed():
 	if $AudioStreamPlayer.playing:
 		$AudioStreamPlayer.stop()
-		$TextureButton.texture_normal = load("res://scenes/mute-sound.png")
+		$TextureButton.texture_normal = load("res://art/mute-sound.png")
 		
 	else:
 		$AudioStreamPlayer.play()
-		$TextureButton.texture_normal = load("res://scenes/sound_new.png")
+		$TextureButton.texture_normal = load("res://art/sound_new.png")
 
 #1 out of 10 chance of transponder working
 func _on_transponder_area_exited(area: Area2D) -> void:
