@@ -5,9 +5,12 @@ extends Node2D
 @export var tile_count: int = 5 # Number of random tiles to place
 @export var cell_size: Vector2 = Vector2(16, 16) # Set to 16x16 tile size
 @export var lostronaut: Area2D
+@export var player_chase = true
+@onready var pause_timer = $PauseTimer  # Adjust this to the correct timer path
 var life = 3
 var score = 0
 var best = 0
+var cool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -84,6 +87,14 @@ func _on_transponder_area_exited(area: Area2D) -> void:
 		new_game()
 	else:
 		$Label.text = "Transponder doesn't work..."
+		if cool == true:
+			await get_tree().create_timer(1).timeout
+			life += 1
+			$LifeLabel.text = str("Lives: ", life)
+		elif cool == false:
+			await get_tree().create_timer(1).timeout
+		#$LifeLabel.text = str("Lives: ", life)
+
 
 # Wrapper function to handle the signal with an argument
 func _on_lostronaut_hit(body):
@@ -119,10 +130,7 @@ func game_over() -> void:
 	$lostronaut/CollisionShape2D.set_deferred("disabled", true)
 	
 func new_game():
-	if get_tree():
-		get_tree().reload_current_scene()
-	else:
-		print("Error: Scene tree is not available.")
+	player_chase = false
 	score = 0
 	life = 3
 	#$lostronaut.start($StartPosition.position)
@@ -130,7 +138,27 @@ func new_game():
 	$ScoreTimer.start()
 	$ScoreLabel.text = str("Timer: ", score)
 	$LifeLabel.text = str("Lives: ", life)
+		
+	# Temporarily disable player and enemy movement
+	$lostronaut.set_process(false)  # Disable processing for player
+	$enemy.set_process(false)       # Disable processing for enemy
+
+	 # Check if pause_timer is valid before starting
+	if pause_timer:
+		pause_timer.start(1.0)  # Start the timer for a 1-second pause
+		await pause_timer.timeout
+	else:
+		print("Error: 'pause_timer' is not initialized.")
+	
 	show_message("Get Ready")
+	#if get_tree():
+		#get_tree().reload_current_scene()
+	#else:
+		#print("Error: Scene tree is not available.")
+
+	# Re-enable player and enemy movement
+	$lostronaut.set_process(true)
+	$enemy.set_process(true)
 	
 	
 func _on_score_timer_timeout():
