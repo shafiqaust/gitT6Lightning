@@ -19,6 +19,10 @@ config/icon="res://art/icon.svg"
 
 Map="*res://scenes/map.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_right={

@@ -11,6 +11,7 @@ height = 130.0
 script = ExtResource("1_tkerc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.454902, 1, 0, 1)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_cx5bt")
 

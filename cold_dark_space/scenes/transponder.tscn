@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7sgsso2e0kfr"]
+[gd_scene load_steps=7 format=3 uid="uid://b5afnggj11s7n"]
 
 [ext_resource type="Texture2D" uid="uid://d3no74k1d1m4a" path="res://art/transponder.png" id="1_f7ui6"]
 [ext_resource type="Script" path="res://scenes/transponder.gd" id="1_vspta"]

@@ -14,6 +14,12 @@ var velocity = Vector2.ZERO
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	hide_jets()
+	
+# Handle the collision when a CharacterBody2D enters the Area2D
+func _on_body_entered(body):
+	if body is CharacterBody2D:
+		print("Collision detected with:", body.name)
+		emit_signal("hit", body)  # Emit custom hit signal for further handling
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,22 +54,22 @@ func _process(delta: float) -> void:
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		#playing audio doesn't work here
-		#audio should be played from main node or somewhere else
-		#where it does work
-		#$jetloop.play()
 	else:
-		#i dont thing this ever happens
 		hide_jets()
-	
-	position.x = wrapf(position.x, 0, screen_size.x)
-	position.y = wrapf(position.y, 0, screen_size.y)
-	
+
+	# Update position with velocity and delta time
 	position += velocity * delta
-	
-	# Check if player is at the screen boundary and emit the exit signal
-	if position.x <= 0 or position.x >= screen_size.x or position.y <= 0 or position.y >= screen_size.y:
-		emit_signal("exited_viewport")
+
+	# Wrap position and signal exit if wrapping occurs
+	var wrapped_x = wrapf(position.x, 0, screen_size.x)
+	var wrapped_y = wrapf(position.y, 0, screen_size.y)
+
+	# Detect if wrapping occurred
+	if wrapped_x != position.x or wrapped_y != position.y:
+		position = Vector2(wrapped_x, wrapped_y)
+		emit_signal("exited_viewport")  # Notify enemy of screen wrap
+	else:
+		position = Vector2(wrapped_x, wrapped_y)
 	
 	#keeps player from flying away. We may need to remove this
 	#position = position.clamp(Vector2.ZERO, screen_size)
