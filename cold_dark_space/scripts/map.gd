@@ -7,6 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# $Area2D.connect("placed", Callable($TileMap, "on_area2D_placed"))
 	if tilemap == null:
 		tilemap = $TileMap # Ensure tilemap is assigned, adjust the path if necessary
 	randomize_tile_positions()

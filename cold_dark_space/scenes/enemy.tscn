@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://su60papswblj"]
+
+[ext_resource type="Texture2D" uid="uid://coxqqttlwxxan" path="res://art/alien -1.png.png" id="1_cx5bt"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_tkerc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7iq1"]
+radius = 33.0
+height = 130.0
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_tkerc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_cx5bt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 10)
+shape = SubResource("CapsuleShape2D_j7iq1")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1

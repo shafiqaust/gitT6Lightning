@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://boqqr2rjjltjt"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_4dnf6"]
-[ext_resource type="Texture2D" uid="uid://c8irfa0v4eoww" path="res://scenes/background.png" id="1_qu3ja"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4dnf6"]
+[ext_resource type="Texture2D" uid="uid://c8irfa0v4eoww" path="res://art/background.png" id="1_qu3ja"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qtuhm"]
 texture = ExtResource("1_qu3ja")
@@ -115,11 +115,18 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_h02ep")
 text = "Exit"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 339.0
-offset_top = 148.0
-offset_right = 828.0
-offset_bottom = 245.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.5
+offset_top = -184.0
+offset_right = 244.5
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0.568627, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_font_sizes/font_size = 60
