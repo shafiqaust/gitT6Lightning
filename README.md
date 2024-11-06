@@ -1,6 +1,7 @@
 # Game Lostronaut
 
 [Play Here](https://shafiqaust.github.io/gitT6Lightning/)
+
 Team 6: Jyothiswaroop Koyya, David Kuntz, Mauricio Munoz, Md Zaman
 
 Language: GDScript
