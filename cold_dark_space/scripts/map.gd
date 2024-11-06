@@ -7,6 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Label.text = "Find the transponder"
 	# $Area2D.connect("placed", Callable($TileMap, "on_area2D_placed"))
 	if tilemap == null:
 		tilemap = $TileMap # Ensure tilemap is assigned, adjust the path if necessary
@@ -61,3 +62,11 @@ func _on_sound_pressed():
 	else:
 		$AudioStreamPlayer.play()
 		$TextureButton.texture_normal = load("res://scenes/sound_new.png")
+
+#1 out of 10 chance of transponder working
+func _on_transponder_area_exited(area: Area2D) -> void:
+	var working = randi()%10 
+	if working == 9:
+		$Label.text = "You won!!!!"
+	else:
+		$Label.text = "Transponder doesn't work..."

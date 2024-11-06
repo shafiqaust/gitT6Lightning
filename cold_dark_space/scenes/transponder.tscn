@@ -32,7 +32,9 @@ script = ExtResource("1_vspta")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o4qjx")
-frame_progress = 0.318072
+frame_progress = 0.585764
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n8nld")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -107,7 +107,8 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0.368627, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 10
 theme_override_font_sizes/font_size = 60
-text = "Cold_Dark_Space"
+text = "Lostronaut"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_back_pressed"]
