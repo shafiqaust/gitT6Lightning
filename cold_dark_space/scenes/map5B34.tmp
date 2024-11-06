@@ -76,11 +76,9 @@ stream = ExtResource("10_5p36o")
 
 [node name="lostronaut" parent="." instance=ExtResource("1_woe68")]
 position = Vector2(177, 303)
-collision_layer = 3
 
 [node name="enemy" parent="." node_paths=PackedStringArray("lostronaut") instance=ExtResource("5_6n06m")]
 position = Vector2(850, 286)
-collision_layer = 2
 lostronaut = NodePath("../lostronaut")
 
 [node name="asteroids" parent="." instance=ExtResource("13_8bets")]

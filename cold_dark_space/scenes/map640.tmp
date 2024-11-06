@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bfdv0n2xohds5"]
+[gd_scene load_steps=20 format=3 uid="uid://bfdv0n2xohds5"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_237v1"]
 [ext_resource type="PackedScene" uid="uid://g5ype4epqd4n" path="res://scenes/lostronaut.tscn" id="1_woe68"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://b7x5id6w8urhv" path="res://art/sound_new.png" id="8_nfpyg"]
 [ext_resource type="Script" path="res://scripts/tile_map.gd" id="8_wtrjo"]
 [ext_resource type="AudioStream" uid="uid://o4ovrr0hmjlh" path="res://scenes/space-station-247790.wav" id="10_5p36o"]
-[ext_resource type="PackedScene" uid="uid://cfju4x1swh4" path="res://scenes/asteroids.tscn" id="13_8bets"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8ose"]
 texture = ExtResource("2_bts2t")
@@ -75,15 +74,9 @@ texture_normal = ExtResource("8_nfpyg")
 stream = ExtResource("10_5p36o")
 
 [node name="lostronaut" parent="." instance=ExtResource("1_woe68")]
-position = Vector2(177, 303)
-collision_layer = 3
 
 [node name="enemy" parent="." node_paths=PackedStringArray("lostronaut") instance=ExtResource("5_6n06m")]
 position = Vector2(850, 286)
-collision_layer = 2
 lostronaut = NodePath("../lostronaut")
-
-[node name="asteroids" parent="." instance=ExtResource("13_8bets")]
-position = Vector2(412, 168)
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_sound_pressed"]

@@ -1,23 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://g5ype4epqd4n"]
+[gd_scene load_steps=14 format=3 uid="uid://chb7wec0pe4nu"]
 
-[ext_resource type="Script" path="res://scripts/lostronaut.gd" id="1_l5epk"]
-[ext_resource type="Texture2D" uid="uid://byt4lq77g3mgp" path="res://art/lostronaut.png" id="2_1kvg4"]
-[ext_resource type="Texture2D" uid="uid://dt7ke171odys4" path="res://art/ion_jet.png" id="3_g841s"]
-[ext_resource type="AudioStream" uid="uid://dklpcpgdb61ct" path="res://rocket-loop-99748.mp3" id="4_att8l"]
+[ext_resource type="Texture2D" uid="uid://byt4lq77g3mgp" path="res://art/lostronaut.png" id="1_26gvd"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_osq2f"]
+[ext_resource type="Texture2D" uid="uid://dt7ke171odys4" path="res://art/ion_jet.png" id="2_t1fvl"]
+[ext_resource type="AudioStream" uid="uid://dklpcpgdb61ct" path="res://rocket-loop-99748.mp3" id="3_083c5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_parmo"]
-atlas = ExtResource("2_1kvg4")
+atlas = ExtResource("1_26gvd")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvels"]
-atlas = ExtResource("2_1kvg4")
+atlas = ExtResource("1_26gvd")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl0iu"]
-atlas = ExtResource("2_1kvg4")
+atlas = ExtResource("1_26gvd")
 region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hohop"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ch1wt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -34,22 +34,22 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1odo2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8nsrx"]
 size = Vector2(36, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dgka3"]
-atlas = ExtResource("3_g841s")
+atlas = ExtResource("2_t1fvl")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqtmb"]
-atlas = ExtResource("3_g841s")
+atlas = ExtResource("2_t1fvl")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hk3m0"]
-atlas = ExtResource("3_g841s")
+atlas = ExtResource("2_t1fvl")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1d4g2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_yx0je"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -66,37 +66,42 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="lostronaut" type="Area2D"]
-script = ExtResource("1_l5epk")
-metadata/_edit_group_ = true
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_osq2f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_hohop")
+sprite_frames = SubResource("SpriteFrames_ch1wt")
+frame_progress = 0.77563
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 3
 position = Vector2(-1, -1)
-shape = SubResource("RectangleShape2D_1odo2")
+shape = SubResource("RectangleShape2D_8nsrx")
 metadata/_edit_group_ = true
 
 [node name="ion_jet_left" type="AnimatedSprite2D" parent="."]
 position = Vector2(42, -14)
-sprite_frames = SubResource("SpriteFrames_1d4g2")
+sprite_frames = SubResource("SpriteFrames_yx0je")
+frame_progress = 0.663611
 
 [node name="ion_jet_right" type="AnimatedSprite2D" parent="."]
 position = Vector2(-42, -16)
 rotation = -3.14159
-sprite_frames = SubResource("SpriteFrames_1d4g2")
+sprite_frames = SubResource("SpriteFrames_yx0je")
+frame_progress = 0.309789
 
 [node name="ion_jet_down" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -44)
 rotation = -1.5708
-sprite_frames = SubResource("SpriteFrames_1d4g2")
+sprite_frames = SubResource("SpriteFrames_yx0je")
+frame_progress = 0.788283
 
 [node name="ion_jet_up" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 42)
 rotation = 1.5708
-sprite_frames = SubResource("SpriteFrames_1d4g2")
+sprite_frames = SubResource("SpriteFrames_yx0je")
+frame_progress = 0.580472
 
 [node name="jetloop" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_att8l")
+stream = ExtResource("3_083c5")
+
+[connection signal="exited_viewport" from="." to="." method="_on_exited_viewport"]
