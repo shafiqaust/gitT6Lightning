@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cab7sykcjcu7x"]
+
+[ext_resource type="Texture2D" uid="uid://bd4mqqwuabw6b" path="res://art/asteroid_1.png" id="1_hlkfw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ddiyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5hhj"]
+atlas = ExtResource("1_hlkfw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg5we"]
+atlas = ExtResource("1_hlkfw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qetgm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5hhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg5we")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="asteroid_3" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ddiyj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qetgm")
+frame_progress = 0.916128
